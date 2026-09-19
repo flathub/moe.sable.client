@@ -65,8 +65,8 @@ modules:
       - type: archive
         only-arches: [x86_64]
         strip-components: 0
-        url: https://github.com/SableClient/Sable/releases/download/v1.21.0/Sable-1.21.0-linux-x86_64.tar.gz
-        sha256: 57caeeaa7b4c4002afd1bc6bbc47ba5807a3e326d77b55545f7e6ea2d7f69df0
+        url: https://github.com/SableClient/Sable/releases/download/v1.22.4/Sable-1.22.4-linux-x86_64.tar.gz
+        sha256: e83150f7ade969fbfbc26b849330167145b2621a75cc906f25c9c0d5304a1024
         x-checker-data:
           type: json
           url: https://api.github.com/repos/SableClient/Sable/releases/latest
@@ -77,8 +77,8 @@ modules:
       - type: archive
         only-arches: [aarch64]
         strip-components: 0
-        url: https://github.com/SableClient/Sable/releases/download/v1.21.0/Sable-1.21.0-linux-aarch64.tar.gz
-        sha256: 2d732583c4016c00fc88356ae2148efb11e02e82b46f4b4f3293554279ed5715
+        url: https://github.com/SableClient/Sable/releases/download/v1.22.4/Sable-1.22.4-linux-aarch64.tar.gz
+        sha256: 93ab363d0fdb305c5d059258d5074d3d13fa117e11c2e270b7e8722770d2211e
         x-checker-data:
           type: json
           url: https://api.github.com/repos/SableClient/Sable/releases/latest
