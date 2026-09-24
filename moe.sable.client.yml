@@ -65,8 +65,8 @@ modules:
       - type: archive
         only-arches: [x86_64]
         strip-components: 0
-        url: https://github.com/SableClient/Sable/releases/download/v1.22.4/Sable-1.22.4-linux-x86_64.tar.gz
-        sha256: e83150f7ade969fbfbc26b849330167145b2621a75cc906f25c9c0d5304a1024
+        url: https://github.com/SableClient/Sable/releases/download/v1.22.6/Sable-1.22.6-linux-x86_64.tar.gz
+        sha256: 620cb8ccd4da3c68c914ab0ca883c252ab55174abf15c7a9f076c5df6ddc02b0
         x-checker-data:
           type: json
           url: https://api.github.com/repos/SableClient/Sable/releases/latest
@@ -77,8 +77,8 @@ modules:
       - type: archive
         only-arches: [aarch64]
         strip-components: 0
-        url: https://github.com/SableClient/Sable/releases/download/v1.22.4/Sable-1.22.4-linux-aarch64.tar.gz
-        sha256: 93ab363d0fdb305c5d059258d5074d3d13fa117e11c2e270b7e8722770d2211e
+        url: https://github.com/SableClient/Sable/releases/download/v1.22.6/Sable-1.22.6-linux-aarch64.tar.gz
+        sha256: c97bd2e603156ddfae8b49203212433f3688116cc2607fb5f94dbe5ae5f62b68
         x-checker-data:
           type: json
           url: https://api.github.com/repos/SableClient/Sable/releases/latest
@@ -93,11 +93,11 @@ modules:
         dest-filename: LICENSE
       # Maintained upstream (SableClient/Sable, packaging/flatpak/).
       - type: file
-        url: https://raw.githubusercontent.com/SableClient/Sable/dev/packaging/flatpak/moe.sable.client.desktop
+        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.6/packaging/flatpak/moe.sable.client.desktop
         sha256: cc9c73c1b7b6fbad989698afd0e2d97fca3be4e4130631a37ce10faebfc7e431
       - type: file
-        url: https://raw.githubusercontent.com/SableClient/Sable/dev/packaging/flatpak/moe.sable.client.metainfo.xml
-        sha256: c966b20e797d0b97b076b77165a3064910ba83698d695ba43d57668d848fdbd0
+        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.6/packaging/flatpak/moe.sable.client.metainfo.xml
+        sha256: 88681dd381ac0131c1c5bd7908ac18236387f4c642d535a6e30ed68d6601bd51
       - type: file
         path: icons/32x32.png
         dest-filename: 32x32.png
