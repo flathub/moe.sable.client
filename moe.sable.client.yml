@@ -65,8 +65,8 @@ modules:
       - type: archive
         only-arches: [x86_64]
         strip-components: 0
-        url: https://github.com/SableClient/Sable/releases/download/v1.22.6/Sable-1.22.6-linux-x86_64.tar.gz
-        sha256: 620cb8ccd4da3c68c914ab0ca883c252ab55174abf15c7a9f076c5df6ddc02b0
+        url: https://github.com/SableClient/Sable/releases/download/v1.22.7/Sable-1.22.7-linux-x86_64.tar.gz
+        sha256: 3d82a6c188f7a5082e1960ac8b05d003129cdd5ce5c361d6774f6c9b5876c681
         x-checker-data:
           type: json
           url: https://api.github.com/repos/SableClient/Sable/releases/latest
@@ -77,8 +77,8 @@ modules:
       - type: archive
         only-arches: [aarch64]
         strip-components: 0
-        url: https://github.com/SableClient/Sable/releases/download/v1.22.6/Sable-1.22.6-linux-aarch64.tar.gz
-        sha256: c97bd2e603156ddfae8b49203212433f3688116cc2607fb5f94dbe5ae5f62b68
+        url: https://github.com/SableClient/Sable/releases/download/v1.22.7/Sable-1.22.7-linux-aarch64.tar.gz
+        sha256: dc135c5a0b93a9602649ba62a66d48c6505bcdca9de89feab6044c9556c51ce2
         x-checker-data:
           type: json
           url: https://api.github.com/repos/SableClient/Sable/releases/latest
@@ -93,11 +93,11 @@ modules:
         dest-filename: LICENSE
       # Maintained upstream (SableClient/Sable, packaging/flatpak/).
       - type: file
-        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.6/packaging/flatpak/moe.sable.client.desktop
+        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.7/packaging/flatpak/moe.sable.client.desktop
         sha256: cc9c73c1b7b6fbad989698afd0e2d97fca3be4e4130631a37ce10faebfc7e431
       - type: file
-        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.6/packaging/flatpak/moe.sable.client.metainfo.xml
-        sha256: 88681dd381ac0131c1c5bd7908ac18236387f4c642d535a6e30ed68d6601bd51
+        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.7/packaging/flatpak/moe.sable.client.metainfo.xml
+        sha256: 02eab7a1f632e9dd7e2d38418c4a27ae1a22415e5c8faaaede67e8b7075c09b8
       - type: file
         path: icons/32x32.png
         dest-filename: 32x32.png
