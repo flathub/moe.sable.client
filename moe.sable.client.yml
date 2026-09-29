@@ -65,8 +65,8 @@ modules:
       - type: archive
         only-arches: [x86_64]
         strip-components: 0
-        url: https://github.com/SableClient/Sable/releases/download/v1.22.9/Sable-1.22.9-linux-x86_64.tar.gz
-        sha256: a329e66feab909ef1234534c02128e7ddffc3a5f3ea26fe9186376b70dc7af50
+        url: https://github.com/SableClient/Sable/releases/download/v1.22.10/Sable-1.22.10-linux-x86_64.tar.gz
+        sha256: f4a34241262b456c6ad9c853f18e649ead5e18f34ed243e2ca3635da54df44f7
         x-checker-data:
           type: json
           url: https://api.github.com/repos/SableClient/Sable/releases/latest
@@ -77,8 +77,8 @@ modules:
       - type: archive
         only-arches: [aarch64]
         strip-components: 0
-        url: https://github.com/SableClient/Sable/releases/download/v1.22.9/Sable-1.22.9-linux-aarch64.tar.gz
-        sha256: dcce4c50bcd81f63872ad6eaf54f5f15fe3ddabc138f96ce0fed33c9736edf2e
+        url: https://github.com/SableClient/Sable/releases/download/v1.22.10/Sable-1.22.10-linux-aarch64.tar.gz
+        sha256: 3e3edcbd3c82b0559102c950e693f184d1ba318d9eb84c6170814b3bddfd629a
         x-checker-data:
           type: json
           url: https://api.github.com/repos/SableClient/Sable/releases/latest
@@ -93,10 +93,10 @@ modules:
         dest-filename: LICENSE
       # Maintained upstream (SableClient/Sable, packaging/flatpak/).
       - type: file
-        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.9/packaging/flatpak/moe.sable.client.desktop
+        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.10/packaging/flatpak/moe.sable.client.desktop
         sha256: cc9c73c1b7b6fbad989698afd0e2d97fca3be4e4130631a37ce10faebfc7e431
       - type: file
-        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.9/packaging/flatpak/moe.sable.client.metainfo.xml
+        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.10/packaging/flatpak/moe.sable.client.metainfo.xml
         sha256: 02eab7a1f632e9dd7e2d38418c4a27ae1a22415e5c8faaaede67e8b7075c09b8
       - type: file
         path: icons/32x32.png
