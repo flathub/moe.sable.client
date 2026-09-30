@@ -66,7 +66,7 @@ modules:
         only-arches: [x86_64]
         strip-components: 0
         url: https://github.com/SableClient/Sable/releases/download/v1.22.10/Sable-1.22.10-linux-x86_64.tar.gz
-        sha256: f4a34241262b456c6ad9c853f18e649ead5e18f34ed243e2ca3635da54df44f7
+        sha256: 51ed05198e04375aca233c12a19e465d349e7467276c1aa5b8064dc0b48a1c94
         x-checker-data:
           type: json
           url: https://api.github.com/repos/SableClient/Sable/releases/latest
@@ -78,7 +78,7 @@ modules:
         only-arches: [aarch64]
         strip-components: 0
         url: https://github.com/SableClient/Sable/releases/download/v1.22.10/Sable-1.22.10-linux-aarch64.tar.gz
-        sha256: 3e3edcbd3c82b0559102c950e693f184d1ba318d9eb84c6170814b3bddfd629a
+        sha256: 862f1c34070c7a2370fa8ddd17883d4bc594a930951a133e2e63bc42d1206815
         x-checker-data:
           type: json
           url: https://api.github.com/repos/SableClient/Sable/releases/latest
