@@ -4,6 +4,10 @@ runtime: org.freedesktop.Platform
 runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 
+# appstream-compose was removed from the freedesktop runtime and Ubuntu's
+# appstream 1.0.2 lacks the appstreamcli compose args flatpak-builder passes.
+appstream-compose: false
+
 base: org.electronjs.Electron2.BaseApp
 base-version: '25.08'
 
@@ -11,13 +15,18 @@ command: sable
 
 finish-args:
   - --socket=x11
+  - --socket=wayland
+  - --env=GDK_BACKEND=x11
   - --share=ipc
   - --device=dri
   - --share=network
   - --socket=pulseaudio
+  - --filesystem=xdg-run/pipewire-0
   - --device=all
+  - --system-talk-name=org.freedesktop.RealtimeKit1
   - --talk-name=org.freedesktop.secrets
   - --talk-name=org.freedesktop.Notifications
+  - --own-name=moe.sable.client.SingleInstance
   - --talk-name=org.kde.StatusNotifierWatcher
   - --filesystem=xdg-download
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
@@ -42,18 +51,15 @@ modules:
     sources:
       - type: archive
         url: https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.28.tar.xz
+        mirror-urls:
+          - https://deb.debian.org/debian/pool/main/d/desktop-file-utils/desktop-file-utils_0.28.orig.tar.xz
         sha256: 4401d4e231d842c2de8242395a74a395ca468cd96f5f610d822df33594898a70
 
-  - name: sable
+  - name: sable-next
     buildsystem: simple
     build-commands:
-      # The release tarball unpacks to a top-level `sable` binary plus a
-      # `runtime/` directory (CEF and the app resources). Recreate the layout
-      # the wrapper expects at /app/lib/sable.
-      - mkdir -p ${FLATPAK_DEST}/lib/sable
-      - install -Dm755 sable ${FLATPAK_DEST}/lib/sable/sable
-      - cp -a runtime/. ${FLATPAK_DEST}/lib/sable/
-      - install -Dm755 sable.sh ${FLATPAK_DEST}/bin/sable
+      - install -Dm755 apply_extra ${FLATPAK_DEST}/bin/apply_extra
+      - install -Dm755 sable-next.sh ${FLATPAK_DEST}/bin/sable
       - install -Dm644 LICENSE ${FLATPAK_DEST}/share/licenses/${FLATPAK_ID}/LICENSE
       - install -Dm644 moe.sable.client.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
       - install -Dm644 moe.sable.client.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
@@ -62,42 +68,46 @@ modules:
       - install -Dm644 128x128.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
       - install -Dm644 256x256.png ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
     sources:
-      - type: archive
+      - type: extra-data
+        filename: sable-next.tar.gz
+        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.0.0/sable-2.0.0-linux-x86_64.tar.gz
+        sha256: 'c7cc309f36ec556cfc1b6f9faf10fdaaf3282371e8896d8562e080bd17a41c51'
+        size: 183214932
         only-arches: [x86_64]
-        strip-components: 0
-        url: https://github.com/SableClient/Sable/releases/download/v1.22.11/Sable-1.22.11-linux-x86_64.tar.gz
-        sha256: 827adeee136f7de076e6381918b1ee043c6af184baa87cf0fd15bb6e2f7407ac
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/SableClient/Sable/releases/latest
+          url: https://git.sable.moe/api/v1/repos/SableClient/sable-next/releases/latest
           version-query: .tag_name | sub("^v"; "")
-          url-query: .assets[] | select(.name == "Sable-" + $version + "-linux-x86_64.tar.gz")
-            | .browser_download_url
+          url-query: .assets[] | select(.name == "sable-" + $version + "-linux-x86_64.tar.gz") | .browser_download_url
           is-main-source: true
-      - type: archive
+      - type: extra-data
+        filename: sable-next.tar.gz
+        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.0.0/sable-2.0.0-linux-aarch64.tar.gz
+        sha256: '09f8c210dcfe026de891e2ae1fa4792306f21db55a58473f8271082e3ced0a61'
+        size: 212555545
         only-arches: [aarch64]
-        strip-components: 0
-        url: https://github.com/SableClient/Sable/releases/download/v1.22.11/Sable-1.22.11-linux-aarch64.tar.gz
-        sha256: f68b4aad018363f7954a862fa566f9ff34d17d3bb8d1fad3fa97f2733640436e
         x-checker-data:
           type: json
-          url: https://api.github.com/repos/SableClient/Sable/releases/latest
+          url: https://git.sable.moe/api/v1/repos/SableClient/sable-next/releases/latest
           version-query: .tag_name | sub("^v"; "")
-          url-query: .assets[] | select(.name == "Sable-" + $version + "-linux-aarch64.tar.gz")
-            | .browser_download_url
+          url-query: .assets[] | select(.name == "sable-" + $version + "-linux-aarch64.tar.gz") | .browser_download_url
+      - type: script
+        dest-filename: apply_extra
+        commands:
+          - set -eu
+          - mkdir -p sable-next
+          - tar --no-same-owner -xzf sable-next.tar.gz -C sable-next
+          - mv sable-next/runtime/* sable-next/
+          - rmdir sable-next/runtime
+          - rm sable-next.tar.gz
       - type: file
-        path: sable.sh
+        path: sable-next.sh
       - type: file
-        url: https://raw.githubusercontent.com/SableClient/Sable/v1.21.0/LICENSE
-        sha256: 4df3c306dddaaf4baffdff5ca820cc679ac8cd6dc263c6a74517783e42fa7a3b
-        dest-filename: LICENSE
-      # Maintained upstream (SableClient/Sable, packaging/flatpak/).
+        path: LICENSE
       - type: file
-        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.11/packaging/flatpak/moe.sable.client.desktop
-        sha256: cc9c73c1b7b6fbad989698afd0e2d97fca3be4e4130631a37ce10faebfc7e431
+        path: moe.sable.client.desktop
       - type: file
-        url: https://raw.githubusercontent.com/SableClient/Sable/v1.22.11/packaging/flatpak/moe.sable.client.metainfo.xml
-        sha256: 02eab7a1f632e9dd7e2d38418c4a27ae1a22415e5c8faaaede67e8b7075c09b8
+        path: moe.sable.client.metainfo.xml
       - type: file
         path: icons/32x32.png
         dest-filename: 32x32.png
