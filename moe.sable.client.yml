@@ -69,7 +69,7 @@ modules:
         dest: sable-next
         strip-components: 0
         url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.0.2/sable-2.0.2-linux-x86_64.tar.gz
-        sha256: '540e3014c7cb688f94c44fbc523e4a7170e1f18497c7f989079c56a220bc8696'
+        sha256: '27993342057aec582f1df5089c1632f8fd9804fa8c31deea89432cb5d62c0e34'
         only-arches: [x86_64]
         x-checker-data:
           type: json
