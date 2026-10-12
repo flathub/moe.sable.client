@@ -1,3 +1,4 @@
 #!/bin/sh
-export ZYPAK_CEF_LIBRARY_PATH=/app/lib/sable/libcef.so
-exec zypak-wrapper /app/lib/sable/sable "$@"
+export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
+export ZYPAK_CEF_LIBRARY_PATH=/app/sable-next/libcef.so
+exec zypak-wrapper /app/sable-next/sable-next "$@"
