@@ -70,8 +70,8 @@ modules:
       - type: archive
         dest: sable-next
         strip-components: 0
-        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.0.2/sable-2.0.2-linux-x86_64.tar.gz
-        sha256: '27993342057aec582f1df5089c1632f8fd9804fa8c31deea89432cb5d62c0e34'
+        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.0.3/sable-2.0.3-linux-x86_64.tar.gz
+        sha256: '9a0e4e7110e51c2c1935824694b8de11580eb3ac763484b35404c3f9746af547'
         only-arches: [x86_64]
         x-checker-data:
           type: json
@@ -82,8 +82,8 @@ modules:
       - type: archive
         dest: sable-next
         strip-components: 0
-        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.0.2/sable-2.0.2-linux-aarch64.tar.gz
-        sha256: '14fbdeac2e5c34ec6d5662dcd402121b41153a53c6a62cdd58422929dada390d'
+        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.0.3/sable-2.0.3-linux-aarch64.tar.gz
+        sha256: '4b75c3c32fc14984295c0c9641e694fc17da42c0578b6381aa3049f8bac98068'
         only-arches: [aarch64]
         x-checker-data:
           type: json
