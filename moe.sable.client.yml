@@ -13,6 +13,7 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --share=ipc
+  - --device=dri
   - --share=network
   - --socket=pulseaudio
   - --filesystem=xdg-run/pipewire-0
@@ -68,8 +69,8 @@ modules:
       - type: archive
         dest: sable
         strip-components: 1
-        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.0/sable-2.2.0-x64.tar.gz
-        sha256: '874cdd98577f5ecaa577999bf9606c842ebbacd745594c3574041c8f2f62f4e1'
+        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.2/sable-2.2.2-x64.tar.gz
+        sha256: '613bdf9949593adb3d481615f02aefd60fecee0a0234833148d854b63c08eb5d'
         only-arches: [x86_64]
         x-checker-data:
           type: json
@@ -80,8 +81,8 @@ modules:
       - type: archive
         dest: sable
         strip-components: 1
-        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.0/sable-2.2.0-arm64.tar.gz
-        sha256: '1c5ecce8380f4f05a08b2b6a821e0e3c44e8ed9b0f3990fcacfecca3858c784e'
+        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.2/sable-2.2.2-arm64.tar.gz
+        sha256: '75febba42abfa62f05ad4d906adec54eb0e73a2cae2194e8da3017ae2903744a'
         only-arches: [aarch64]
         x-checker-data:
           type: json
