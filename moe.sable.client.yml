@@ -1,11 +1,11 @@
 id: moe.sable.client
 
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 
 base: org.electronjs.Electron2.BaseApp
-base-version: '25.08'
+base-version: '26.08'
 
 command: sable
 
@@ -39,15 +39,6 @@ modules:
         tag: v1.2.1
         commit: 356c380ad6fecc9ce6bea1f6a77986ba67402c80
 
-  - name: desktop-file-utils
-    buildsystem: meson
-    sources:
-      - type: archive
-        url: https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.28.tar.xz
-        mirror-urls:
-          - https://deb.debian.org/debian/pool/main/d/desktop-file-utils/desktop-file-utils_0.28.orig.tar.xz
-        sha256: 4401d4e231d842c2de8242395a74a395ca468cd96f5f610d822df33594898a70
-
   - name: sable
     buildsystem: simple
     build-options:
@@ -68,8 +59,8 @@ modules:
       - type: archive
         dest: sable
         strip-components: 1
-        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.0/sable-2.2.0-x64.tar.gz
-        sha256: '874cdd98577f5ecaa577999bf9606c842ebbacd745594c3574041c8f2f62f4e1'
+        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.2/sable-2.2.2-x64.tar.gz
+        sha256: '613bdf9949593adb3d481615f02aefd60fecee0a0234833148d854b63c08eb5d'
         only-arches: [x86_64]
         x-checker-data:
           type: json
@@ -80,8 +71,8 @@ modules:
       - type: archive
         dest: sable
         strip-components: 1
-        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.0/sable-2.2.0-arm64.tar.gz
-        sha256: '1c5ecce8380f4f05a08b2b6a821e0e3c44e8ed9b0f3990fcacfecca3858c784e'
+        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.2/sable-2.2.2-arm64.tar.gz
+        sha256: '75febba42abfa62f05ad4d906adec54eb0e73a2cae2194e8da3017ae2903744a'
         only-arches: [aarch64]
         x-checker-data:
           type: json
