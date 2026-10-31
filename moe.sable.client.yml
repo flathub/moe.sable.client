@@ -59,26 +59,30 @@ modules:
       - type: archive
         dest: sable
         strip-components: 1
-        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.2/sable-2.2.2-x64.tar.gz
-        sha256: '613bdf9949593adb3d481615f02aefd60fecee0a0234833148d854b63c08eb5d'
+        url: 
+          https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.3/sable-2.2.3-x64.tar.gz
+        sha256: dea2f73053a388f05b28ca2aefde0257f4a4a41e74db6802f3b1c1e3063d5efb
         only-arches: [x86_64]
         x-checker-data:
           type: json
           url: https://git.sable.moe/api/v1/repos/SableClient/sable-next/releases/latest
           version-query: .tag_name | sub("^v"; "")
-          url-query: .assets[] | select(.name == "sable-" + $version + "-x64.tar.gz") | .browser_download_url
+          url-query: .assets[] | select(.name == "sable-" + $version + "-x64.tar.gz")
+            | .browser_download_url
           is-main-source: true
       - type: archive
         dest: sable
         strip-components: 1
-        url: https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.2/sable-2.2.2-arm64.tar.gz
-        sha256: '75febba42abfa62f05ad4d906adec54eb0e73a2cae2194e8da3017ae2903744a'
+        url: 
+          https://git.sable.moe/SableClient/sable-next/releases/download/v2.2.3/sable-2.2.3-arm64.tar.gz
+        sha256: e23d62202c14286aad9eeec9ff41353992bcb6b90dadf3b405c86f3159b05024
         only-arches: [aarch64]
         x-checker-data:
           type: json
           url: https://git.sable.moe/api/v1/repos/SableClient/sable-next/releases/latest
           version-query: .tag_name | sub("^v"; "")
-          url-query: .assets[] | select(.name == "sable-" + $version + "-arm64.tar.gz") | .browser_download_url
+          url-query: .assets[] | select(.name == "sable-" + $version + "-arm64.tar.gz")
+            | .browser_download_url
       - type: file
         path: sable.sh
       - type: file
